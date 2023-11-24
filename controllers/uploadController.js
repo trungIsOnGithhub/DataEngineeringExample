@@ -1,8 +1,9 @@
 const formidable = require('formidable');
-const fs = require('fs');   
+const fs = require('fs');
+const path = require('path');
 
 const HTML_FORM_FIELDS_NAME = "filecontent";
-const NEW_FILE_STATIC_PATH = __dirname.replace("/controllers", "/") + "/storage/";
+const NEW_FILE_STATIC_PATH = __dirname.replace("controllers", "") + "storage" + path.sep;
 
 const allowedMimeFileType = [
     "application/pdf",
