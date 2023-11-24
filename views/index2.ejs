@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BK PRINT</title>
+    <link rel="stylesheet" href="./asset/font/fontawesome/fontawesome-free-6.2.0-web/css/all.min.css">
+    <link rel="stylesheet" href="./asset/css/nav_css.css">
+    <link rel="stylesheet" href="./asset/css/style2.css">
+</head>
+<body>
+    <nav class="nav">
+        <a href="index.html"><h2 class="logo">BK PRINT</h2></a>
+
+        <div class="user">
+            <span class="budget">Số dư: <span class="quantity">75</span> Trang</span>
+            
+            <div class="user_info">
+                <div class="user_icon">
+                    <i class="fa-solid fa-user"></i>
+                </div>
+    
+                <span class="user_name">Tên người dùng</span>
+
+            </div>
+
+            <div class="user_info--hidden">
+                <span class="info">MSSV: <span class="info--mssv">2110509</span></span>
+                <span class="info">Khoa: <span class="info--khoa">Khoa học và Kỹ thuật Máy tính</span></span>
+    
+                <div class="info-button">
+                    <button type="button" class="button">Lịch sử</button>
+                    <button type="button" class="button">Thay đổi thông tin</button>
+                    <button type="button" class="button button_logout">Đăng xuất</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <article class="content">
+        <div class="left">
+            <img src="https://th.bing.com/th/id/R.1a7d1fa7f98dd3a4557abe44a8cc25cb?rik=O4E%2bwrR15i0www&pid=ImgRaw&r=0&sres=1&sresct=1" alt="">
+
+            <div class="content_page">
+                <i onclick="decCurPage()" class="increase fa-solid fa-angle-left"></i>
+
+                <div class="current_page">
+                    <input type="text" value="15">
+                    <span>/<span class="total">20</span></span>
+                </div>
+
+                <i onclick="incCurPage()" class="decrease fa-solid fa-angle-right"></i>
+            </div>
+        </div>
+
+        <div class="right">
+            <div class="form_item">
+                Cửa hàng in:
+                <div class="dropdown">
+                    <input onclick="myFunction(event)" class="drop" placeholder="Chọn cửa hàng in" readonly>
+                    <i class="fa-solid fa-angle-down"></i>
+                    <div id="myDropdown" class="dropdown-content">
+                        <input type="text" placeholder="Search.." id="myInput" onkeyup="filterFunction()">
+                        <a onclick="changeInput(event)" href="#">Tiệm in abc, đường xyz, phường def, quận ghi, thành phố Hồ Chí Minh</a>
+                        <a onclick="changeInput(event)" href="#">Tiệm in bcd, đường xyz, phường def, quận ghi, thành phố Hồ Chí Minh</a>
+                    </div>
+                </div>
+            </div>
+            <form action="post" method="">
+                <div class="form_item">
+                    Máy in: 
+                    <select name="printer" id="select printer">
+                        <option value="option_1">Máy in 1 (in trắng đen, 2 mặt)</option>
+                        <option value="option_2">Máy in 2 (in trắng đen, 2 mặt)</option>
+                    </select>
+                </div>
+            </form>
+        </div>
+    </article>
+
+    <div class="footer">
+        <button onclick="window.location.href='index.html'" type="button" class="cancel">Hủy</button>
+        <button type="button" class="continue"><a href="/option">Tiếp theo</a></button>
+    </div>
+
+    <script src="./asset/js/main.js"></script>
+    <script src="./asset/js/dropdown.js"></script>
+</body>
+</html>

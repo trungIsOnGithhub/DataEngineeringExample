@@ -6,7 +6,7 @@
     <title>BK PRINT</title>
     <link rel="stylesheet" href="./asset/font/fontawesome/fontawesome-free-6.2.0-web/css/all.min.css">
     <link rel="stylesheet" href="./asset/css/nav_css.css">
-    <link rel="stylesheet" href="./asset/css/style.css">
+    <link rel="stylesheet" href="./asset/css/style1.css">
 </head>
 <body>
     <nav class="nav">
@@ -37,37 +37,44 @@
         </div>
     </nav>
 
-    <!-- <div class="content">   
-        <div>
-            <h4 class="<%= styleClass %>"><%= fileUploadMessage %></h4>
-            <% if (canRedirectNextPage) { %>
-                <a href="/home">Đến Trang Tùy Chỉnh</a>
-            <% } %>
-        </div>
-    </div> -->
+    <article class="content">
+        <div class="header">
+            <a href="index.html" class="home_icon">
+                <i class="fa-solid fa-house"></i>
+            </a>
 
-    <article class="content">   
-        <div>
-            <h4 id="<%= styleClass %>"><%= fileUploadMessage %></h4>
-            <% if (canRedirectNextPage) { %>
-                <a href="/select">Đến Trang Tùy Chỉnh</a>
-            <% } %>
+            <span class="header_content">Mua thêm trang in</span>
         </div>
 
-        <div class="container" ondrop="dropHandler(event)" ondragover="dragOverHandler(event)">
-            <h1 class="logo logo_header">BK PRINT</h1>
-            <form action="/upload" method="POST" enctype="multipart/form-data" accept=".pdf,.docx,.txt,.rtf">
-                <input type="file" multiple class="print" value="Đặt in ngay!" name="filecontent" id="filechosen">
-                <button type="submit" class="input_file">
-                    Tải tệp lên
-                    <i class="fa-solid fa-arrow-right"></i>
-                </button>
-            </form>
-            <span class="file_text">(hoặc kéo thả tệp vào đây)</span>
+        <div class="container">
+            <div class="budget_main">
+                <h3 class="budget_header">Số dư hiện tại:</h3>
+                <span class="budget_quantity">75 <span>trang</span></span>
+            </div>
+    
+            <div class="buyPage">
+                <h3 class="buyPage_header">Mua thêm trang in:</h3>
+    
+                <div class="payment">
+                    <button class="payment--item" type="button">
+                        <img src="./asset/img/momo.png" alt="BKPay">
+                        <span>Thanh toán qua BKPay</span>
+                    </button>
+                    
+                    <button class="payment--item" type="button">
+                        <img src="./asset/img/momo.png" alt="">
+                        <span>Thanh toán qua CKNH</span>
+                    </button>
+                    
+                    <button class="payment--item" type="button">
+                        <img src="./asset/img/momo.png" alt="Momo">
+                        <span>Thanh toán qua Momo</span>
+                    </button>
+                </div>
+            </div>
         </div>
     </article>
 
     <script src="./asset/js/main.js"></script>
-    <script src="./asset/js/dragFile.js"></script>
 </body>
 </html>

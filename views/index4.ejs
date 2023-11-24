@@ -6,7 +6,7 @@
     <title>BK PRINT</title>
     <link rel="stylesheet" href="./asset/font/fontawesome/fontawesome-free-6.2.0-web/css/all.min.css">
     <link rel="stylesheet" href="./asset/css/nav_css.css">
-    <link rel="stylesheet" href="./asset/css/style.css">
+    <link rel="stylesheet" href="./asset/css/style4.css">
 </head>
 <body>
     <nav class="nav">
@@ -37,37 +37,16 @@
         </div>
     </nav>
 
-    <!-- <div class="content">   
-        <div>
-            <h4 class="<%= styleClass %>"><%= fileUploadMessage %></h4>
-            <% if (canRedirectNextPage) { %>
-                <a href="/home">Đến Trang Tùy Chỉnh</a>
-            <% } %>
-        </div>
-    </div> -->
-
-    <article class="content">   
-        <div>
-            <h4 id="<%= styleClass %>"><%= fileUploadMessage %></h4>
-            <% if (canRedirectNextPage) { %>
-                <a href="/select">Đến Trang Tùy Chỉnh</a>
-            <% } %>
-        </div>
-
-        <div class="container" ondrop="dropHandler(event)" ondragover="dragOverHandler(event)">
-            <h1 class="logo logo_header">BK PRINT</h1>
-            <form action="/upload" method="POST" enctype="multipart/form-data" accept=".pdf,.docx,.txt,.rtf">
-                <input type="file" multiple class="print" value="Đặt in ngay!" name="filecontent" id="filechosen">
-                <button type="submit" class="input_file">
-                    Tải tệp lên
-                    <i class="fa-solid fa-arrow-right"></i>
-                </button>
-            </form>
-            <span class="file_text">(hoặc kéo thả tệp vào đây)</span>
+    <article class="content">
+        <div class="container">
+            <i class="fa-regular fa-circle-check"></i>
+            <span>Đặt in thành công</span>
+            <div class="footer">
+                <button type="button" class="continue">Xem trạng thái đơn hàng</button>
+                <button type="button" onclick="window.location.href='index.html'" class="cancel">Trở về trang chủ</button>
+            </div>
         </div>
     </article>
-
     <script src="./asset/js/main.js"></script>
-    <script src="./asset/js/dragFile.js"></script>
 </body>
 </html>
