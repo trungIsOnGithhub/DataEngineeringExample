@@ -1,0 +1,51 @@
+.content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.container i {
+    font-size: 150px;
+    color: rgb(1, 104, 1);
+    margin-bottom: 12px;
+}
+
+.container span {
+    font-size: 60px;
+}
+
+.footer button {
+    padding: 16px 20px;
+    width: 300px;
+    border-radius: 50px;
+    cursor: pointer;
+    font-size: 20px;
+    display: block;
+    margin-top: 16px;
+}
+
+.continue {
+    border: none;
+    background-color: #0d99ff;
+    color: white;
+}
+
+.continue:hover {
+    opacity: 0.75;
+}
+
+.cancel {
+    background-color: white;
+    border: 1px solid black;
+}
+
+.cancel:hover {
+    background-color: #d3d3d3;
+}

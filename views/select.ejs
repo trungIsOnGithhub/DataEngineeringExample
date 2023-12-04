@@ -39,18 +39,23 @@
 
     <article class="content">
         <div class="left">
-            <img src="https://th.bing.com/th/id/R.1a7d1fa7f98dd3a4557abe44a8cc25cb?rik=O4E%2bwrR15i0www&pid=ImgRaw&r=0&sres=1&sresct=1" alt="">
-
-            <div class="content_page">
-                <i onclick="decCurPage()" class="increase fa-solid fa-angle-left"></i>
-
-                <div class="current_page">
-                    <input type="text" value="15">
-                    <span>/<span class="total">20</span></span>
-                </div>
-
-                <i onclick="incCurPage()" class="decrease fa-solid fa-angle-right"></i>
+            <div>
+                <object
+                  data='<%= "/" + newName %>'
+                  type="application/pdf"
+                  width="400" height="660"
+                >
+                  <iframe
+                    src='<%= "/" + newName %>'
+                    width="500" height="660"
+                  >
+                  <p>This browser does not support PDF!</p>
+                  </iframe>
+                </object>
             </div>
+            <h5 style="text-align:center;">
+                <%= originalName %>
+            </h5>
         </div>
 
         <div class="right">

@@ -1,0 +1,110 @@
+.content {
+    padding: 100px 80px 0;
+    display: flex;
+    justify-content: space-between;
+    height: auto;
+}
+
+.left img {
+    width: 20vw;
+    height: 60vh;
+    border-radius: 25px;
+}
+
+.content_page {
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    margin-top: 6px;
+}
+
+.current_page {
+    margin: 0 8px; 
+}
+
+.content_page i {
+    cursor: pointer;
+}
+
+.current_page input {
+    width: 24px;
+}
+
+.form_item {
+    font-size: 30px;
+    font-weight: 400;
+    margin-bottom: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.select_page {
+    padding: 10px 14px;
+    width: 700px;
+    border-radius: 50px;
+    border: 1px solid black;
+}
+
+select {
+    margin-left: 16px;
+    padding: 10px 14px;
+}
+
+select, option {
+    width: 700px;
+    border-radius: 50px;
+}
+
+.temp_container {
+    display: flex;
+    width: 700px;
+    justify-content: left;
+}
+
+.radio_item {
+    font-size: 20px;
+    min-width: 150px;
+}
+
+#quantity {
+    width: 80px;
+    padding: 10px 14px;
+    border-radius: 50px;
+    border: 1px solid black;
+}
+
+.footer {
+    display: flex;
+    justify-content: right;
+    padding-right: 80px;
+    margin-top: 40px;
+}
+
+.footer button {
+    margin-right: 10px;
+    padding: 16px 20px;
+    width: 160px;
+    border-radius: 50px;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+.continue {
+    border: none;
+    background-color: #0d99ff;
+    color: white;
+}
+
+.continue:hover {
+    opacity: 0.75;
+}
+
+.cancel {
+    background-color: white;
+    border: 1px solid black;
+}
+
+.cancel:hover {
+    background-color: #d3d3d3;
+}

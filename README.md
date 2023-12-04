@@ -2,7 +2,7 @@
 ## Setup
 ```npm i```
 ```mkdir storage``` for file storage
-```npm run serve```
+```npm run dev```
 ## Usage
 
 ## Reference

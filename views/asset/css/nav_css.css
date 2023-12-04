@@ -1,0 +1,145 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+}
+
+.content {
+    height: calc(100% - 66px);
+}
+
+.nav {
+    height: 66px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: space-between;
+    box-shadow: 0 1px 5px #b3b3b3;
+    align-items: center;
+    z-index: 1;
+}
+
+.nav a {
+    color: black;
+    text-decoration: none;
+    padding: 10px 20px;
+}
+
+.nav a:hover,
+.user_info:hover {
+    opacity: 0.75;
+}
+
+.logo {
+    font-weight: 1000;
+    font-size: 40px;
+}
+
+.user {
+    display: flex;
+    padding: 10px 20px;
+    align-items: center;
+}
+
+.user_info {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    padding-right: 50px;
+    cursor: pointer;
+}
+
+.budget {
+    margin-right: 16px;
+}
+
+.user_icon {
+    border: 1px solid black;
+    padding: 10px;
+    border-radius: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 6px;
+}
+
+.user_icon i {
+    font-size: 16px;
+}
+
+.user_info--hidden {
+    position: absolute;
+    top: 90%;
+    background-color: white;
+    right: 16px;
+    padding: 14px;
+    border-radius: 16px;
+    width: 220px;
+    box-shadow: 0 1px 5px #b3b3b3;
+    display: none;
+    animation: showUp 0.3s ease-in;
+}
+
+.user_info--hidden .info {
+    display: block;
+    font-size: 14px;
+    margin-bottom: 2px;
+}
+
+.info-button {
+    display: flex;
+    flex-direction: column;
+    margin-top: 6px;
+}
+
+.button {
+    padding: 14px 0;
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 20px;
+    margin-bottom: 6px;
+    cursor: pointer;
+}
+
+.button:hover {
+    background-color: #d1d1d1;
+}
+
+.button_logout {
+    background-color: #ff4040;
+    color: white;
+    border: none;
+}
+
+.button_logout:hover {
+    background-color: #ff7575;
+}
+
+.show {
+    display: block;
+}
+
+@keyframes showUp {
+    from {
+        opacity: 0;
+    }
+    to {
+       opacity: 1;
+    }
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}

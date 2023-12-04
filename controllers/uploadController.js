@@ -1,6 +1,7 @@
 const formidable = require('formidable');
 const fs = require('fs');
 const path = require('path');
+let userData = require('../models/User').userData;
 
 const HTML_FORM_FIELDS_NAME = "filecontent";
 const NEW_FILE_STATIC_PATH = __dirname.replace("controllers", "") + "storage" + path.sep;
@@ -31,7 +32,10 @@ function renameFileAfterUpload(file) {
 }
 
 async function upload(req, res) {
-    let form = new formidable.IncomingForm();
+    let form = new formidable.IncomingForm({
+        keepExtensions: true
+      });
+    // form.keepExtensions = true;
 
     form.encoding = 'utf-8';
 
@@ -57,8 +61,13 @@ async function upload(req, res) {
                     return reject( {failedCode: 2} );
                 }
 
-                // console.log("--->" + JSON.stringify(file));
+                // console.log("--->" + );
                 // console.log("+++>" + JSON.stringify(fields));
+
+                if (!userData[req.session.cas_id]) {
+                    userData[req.session.cas_id] = [];
+                }
+                userData[req.session.cas_id].push(JSON.parse(JSON.stringify(file)));
 
                 console.log("file uploaded: " + fields);
                 resolve(file);
