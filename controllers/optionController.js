@@ -1,5 +1,4 @@
 let userData = require('../models/User').userData;
-const locationPrinterName = require('../models/Location').name;
 
 async function select(req, res) {
     // console.log(JSON.stringify(req.session));
@@ -20,10 +19,9 @@ async function select(req, res) {
         newName: userUploadRecord.newFilename,
         originalName: userUploadRecord.originalFilename,
         username: req.session.username,
-        locationPrinterName: locationPrinterName
     };
 
-    res.render("select", viewData);
+    res.render("option", viewData);
 }
 
 module.exports = select;

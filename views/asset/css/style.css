@@ -46,3 +46,12 @@
 .file_text {
     color: #3f3f3f;
 }
+#notification-landing-page {
+    top: 100px;
+    left: 32%;
+    position: absolute;
+    border-radius: 15px;
+    border: 2px solid green;
+    background-color: lightcyan;
+    padding: 2em;
+}

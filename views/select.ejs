@@ -20,7 +20,7 @@
                     <i class="fa-solid fa-user"></i>
                 </div>
     
-                <span class="user_name">Tên người dùng</span>
+                <span class="user_name"><%= username? username : "Hãy Đăng Nhập" %></span>
 
             </div>
 
@@ -31,7 +31,7 @@
                 <div class="info-button">
                     <button type="button" class="button">Lịch sử</button>
                     <button type="button" class="button">Thay đổi thông tin</button>
-                    <button type="button" class="button button_logout">Đăng xuất</button>
+                    <button onclick="window.location.href='/logout'" type="button" class="button button_logout">Đăng xuất</button>
                 </div>
             </div>
         </div>
@@ -60,14 +60,17 @@
 
         <div class="right">
             <div class="form_item">
-                Cửa hàng in:
+                Địa điểm in:
                 <div class="dropdown">
-                    <input onclick="myFunction(event)" class="drop" placeholder="Chọn cửa hàng in" readonly>
+                    <input onclick="myFunction(event)" class="drop" placeholder="Chọn địa điểm in" readonly>
                     <i class="fa-solid fa-angle-down"></i>
                     <div id="myDropdown" class="dropdown-content">
                         <input type="text" placeholder="Search.." id="myInput" onkeyup="filterFunction()">
-                        <a onclick="changeInput(event)" href="#">Tiệm in abc, đường xyz, phường def, quận ghi, thành phố Hồ Chí Minh</a>
-                        <a onclick="changeInput(event)" href="#">Tiệm in bcd, đường xyz, phường def, quận ghi, thành phố Hồ Chí Minh</a>
+                        <% for (let name of locationPrinterName) { %>
+                            <a onclick="changeInput(event)" href="#">
+                                <%= name %>
+                            </a>
+                        <% } %>
                     </div>
                 </div>
             </div>
@@ -84,8 +87,8 @@
     </article>
 
     <div class="footer">
-        <button onclick="window.location.href='index.html'" type="button" class="cancel">Hủy</button>
-        <button type="button" class="continue"><a href="/option">Tiếp theo</a></button>
+        <button onclick="window.location.href='/'" type="button" class="cancel">Hủy</button>
+        <button onclick="window.location.href='/option'" type="button" class="continue">Tiếp theo</button>
     </div>
 
     <script src="./asset/js/main.js"></script>

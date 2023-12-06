@@ -4,6 +4,7 @@ const sessions = require('express-session');
 const authenticate = require('./middlewares/authenticate.js');
 const uploadControllers = require("./controllers/uploadController.js");
 const selectControllers = require("./controllers/selectController.js");
+const optionControllers = require("./controllers/optionController.js");
 
 const port = 3000;
 const oneDay = 1000 * 60 * 60 * 24;
@@ -37,7 +38,7 @@ app.use(cookieParser());
 app.post('/cas', (req, res) => {
 	if (!req.body || !req.body.password
 		|| !req.body.username) {
-		res.json({status: 400, msg: 'Bad Request'});
+		res.render("400");
 		return;
 	}
 
@@ -53,20 +54,39 @@ app.get("/",  authenticate, (req, res) => {
 		{
 			styleClass: "",
 			fileUploadMessage: "",
-			canRedirectNextPage: false
+			canRedirectNextPage: false,
+			username: "Trung Nguyen"
 		}
 	);
 });
 
+app.get("/logout", (req, res) => {
+	if (req.session) {
+		req.session.destroy();
+		req.session = undefined;
+	}
+	res.render("sso");
+});
+
 app.get("/home", (req, res) => {
-	res.render("index1");
+	res.render("home",
+		{
+			username: req.session.username
+		}
+	);
+});
+
+app.get("/success", authenticate, (req, res) => {
+	res.render("success",
+		{
+			username: req.session.username
+		}
+	);
 });
 
 app.get("/select", authenticate, selectControllers);
 
-app.get("/option", authenticate, (req, res) => {
-	res.render("index3");
-});
+app.get("/option", authenticate, optionControllers);
 
 app.post("/upload",  authenticate, uploadControllers);
 

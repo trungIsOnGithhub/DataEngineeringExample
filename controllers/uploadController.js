@@ -42,7 +42,8 @@ async function upload(req, res) {
     let viewData = 	{
         styleClass: "failed-upload-file",
         fileUploadMessage: "",
-        canRedirectNextPage: false
+        canRedirectNextPage: false,
+		username: req.session.username,
     }
 
     try {

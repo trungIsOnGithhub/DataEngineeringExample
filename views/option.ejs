@@ -20,7 +20,7 @@
                     <i class="fa-solid fa-user"></i>
                 </div>
     
-                <span class="user_name">Tên người dùng</span>
+                <span class="user_name"><%= username? username : "Hãy Đăng Nhập" %></span>
 
             </div>
 
@@ -31,7 +31,7 @@
                 <div class="info-button">
                     <button type="button" class="button">Lịch sử</button>
                     <button type="button" class="button">Thay đổi thông tin</button>
-                    <button type="button" class="button button_logout">Đăng xuất</button>
+                    <button onclick="window.location.href='/logout'" type="button" class="button button_logout">Đăng xuất</button>
                 </div>
             </div>
         </div>
@@ -39,18 +39,23 @@
 
     <article class="content">
         <div class="left">
-            <img src="https://th.bing.com/th/id/R.1a7d1fa7f98dd3a4557abe44a8cc25cb?rik=O4E%2bwrR15i0www&pid=ImgRaw&r=0&sres=1&sresct=1" alt="">
-
-            <div class="content_page">
-                <i onclick="decCurPage()" class="increase fa-solid fa-angle-left"></i>
-
-                <div class="current_page">
-                    <input type="text" value="15">
-                    <span>/<span class="total">20</span></span>
-                </div>
-
-                <i onclick="incCurPage()" class="decrease fa-solid fa-angle-right"></i>
+            <div>
+                <object
+                  data='<%= "/" + newName %>'
+                  type="application/pdf"
+                  width="400" height="660"
+                >
+                  <iframe
+                    src='<%= "/" + newName %>'
+                    width="500" height="660"
+                  >
+                  <p>This browser does not support PDF!</p>
+                  </iframe>
+                </object>
             </div>
+            <h5 style="text-align:center;">
+                <%= originalName %>
+            </h5>
         </div>
 
         <div class="right">
@@ -93,12 +98,12 @@
                     Mặt in:
                     <div class="temp_container">
                         <div class="radio_item">
-                            <input type="radio" name="side" value="1"> 
+                            <input type="radio" name="side" value="1" id="oneside"> 
                             <label for="side">Một mặt</label>
                         </div>
     
                         <div class="radio_item">
-                            <input type="radio" name="side" value="2"> 
+                            <input type="radio" name="side" value="2" id="twoside"> 
                             <label for="side">Hai mặt</label>
                         </div>
                     </div>
@@ -108,12 +113,12 @@
                     Hướng in:
                     <div class="temp_container">
                         <div class="radio_item">
-                            <input type="radio" name="direction" value="doc"> 
+                            <input type="radio" name="direction" value="doc" id="vertical"> 
                             <label for="side">Hướng dọc</label>
                         </div>
     
                         <div class="radio_item">
-                            <input type="radio" name="direction" value="ngang"> 
+                            <input type="radio" name="direction" value="ngang" id="horizontal"> 
                             <label for="side">Hướng ngang</label>
                         </div>
                     </div>
@@ -140,10 +145,11 @@
     </article>
 
     <div class="footer">
-        <button onclick="window.location.href='index.html'" type="button" class="cancel">Hủy</button>
-        <button type="button" class="continue">Thanh toán</button>
+        <button onclick="window.location.href='/'" type="button" class="cancel">Hủy</button>
+        <button type="button" class="continue" id="make-payment">Thanh toán</button>
     </div>
 
     <script src="./asset/js/main.js"></script>
+    <script src="./asset/js/option.js"></script>
 </body>
 </html>

@@ -20,7 +20,7 @@
                     <i class="fa-solid fa-user"></i>
                 </div>
     
-                <span class="user_name">Tên người dùng</span>
+                <span class="user_name"><%= username? username : "Hãy Đăng Nhập" %></span>
 
             </div>
 
@@ -31,7 +31,7 @@
                 <div class="info-button">
                     <button type="button" class="button">Lịch sử</button>
                     <button type="button" class="button">Thay đổi thông tin</button>
-                    <button type="button" class="button button_logout">Đăng xuất</button>
+                    <button onclick="window.location.href='/logout'" type="button" class="button button_logout">Đăng xuất</button>
                 </div>
             </div>
         </div>
@@ -39,7 +39,7 @@
 
     <article class="content">
         <div class="header">
-            <a href="index.html" class="home_icon">
+            <a href="/" class="home_icon">
                 <i class="fa-solid fa-house"></i>
             </a>
 
