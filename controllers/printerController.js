@@ -3,10 +3,19 @@ let printer = require('../models/Location');
 const locationPrinterName = require('../models/Location').name;
 
 function get(req, res) {
-   res.json({printers: printer.printers}); 
+    if (!req.locals || req.locals.role !== "officer") {
+        res.render("400");
+        return;
+    }
+    res.json({printers: printer.printers}); 
 }
 
 function add(req, res) {
+    if (!req.locals || req.locals.role !== "officer") {
+        res.render("400");
+        return;
+    }
+
     if ( !req.body || !req.body.mmi) {
          res.render("400");
          return;
@@ -18,6 +27,11 @@ function add(req, res) {
 }
 
 function remove(req, res) {
+    if (!req.locals || req.locals.role !== "officer") {
+        res.render("400");
+        return;
+    }
+
     if ( !req.params.stt ) {
          res.render("400");
          return;
@@ -29,6 +43,11 @@ function remove(req, res) {
 }
 
 function edit(req, res) {
+    if (!req.locals || req.locals.role !== "officer") {
+        res.render("400");
+        return;
+    }
+
     if ( !req.body || !req.body.mmi || req.params.stt) {
          res.render("400");
          return;

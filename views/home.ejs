@@ -29,8 +29,8 @@
                 <span class="info">Khoa: <span class="info--khoa">Khoa học và Kỹ thuật Máy tính</span></span>
     
                 <div class="info-button">
-                    <button type="button" class="button">Lịch sử</button>
-                    <button type="button" class="button">Thay đổi thông tin</button>
+                    <button type="button" class="button" onclick="window.location.href='/history'">Lịch sử</button>
+                    <button type="button" class="button" onclick="window.location.href='/home'">Thay đổi thông tin</button>
                     <button onclick="window.location.href='/logout'" type="button" class="button button_logout">Đăng xuất</button>
                 </div>
             </div>
@@ -39,9 +39,7 @@
 
     <article class="content">
         <div class="header">
-            <a href="/" class="home_icon">
-                <i class="fa-solid fa-house"></i>
-            </a>
+            <a id="back_button" href="/"><img src="./asset/img/home_button.png"></a>
 
             <span class="header_content">Mua thêm trang in</span>
         </div>

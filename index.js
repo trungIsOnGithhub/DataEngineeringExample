@@ -99,19 +99,35 @@ app.get("/success", authenticate,  role, (req, res) => {
 	);
 });
 
+app.get("/success", authenticate,  role, (req, res) => {
+	res.render("success",
+		{
+			username: req.session.username
+		}
+	);
+});
+
+app.get("/history", authenticate,  role, (req, res) => {
+	res.render("history",
+		{
+			username: req.session.username
+		}
+	);
+});
+
 app.get("/select", authenticate, role, selectControllers);
 
 app.get("/option", authenticate, role, optionControllers);
 
 app.post("/upload",  authenticate, role, uploadControllers);
 
-app.get("/printer/", printerControllers.get);
+app.get("/printer/", authenticate, role, printerControllers.get);
 
-app.post("/printer/", printerControllers.add);
+app.post("/printer/", authenticate, role,  printerControllers.add);
 
-app.delete("/printer/:stt", printerControllers.remove);
+app.delete("/printer/:stt", authenticate, role, printerControllers.remove);
 
-app.put("/printer/:stt", printerControllers.edit);
+app.put("/printer/:stt", authenticate, role, printerControllers.edit);
 
 app.listen(port, () => {
 	console.log(`App running at http://localhost:${port}`);
