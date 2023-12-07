@@ -8,7 +8,9 @@ function authenticate(req, res, next) {
 		return;
 	}
 
-	req.session.username = usernamelist[Math.floor(Math.random()*(usernamelist.length-1)) + 1]
+	if (!req.session.username) {
+		req.session.username = usernamelist[Math.floor(Math.random()*(usernamelist.length-1)) + 1]
+	}
 
     next();
 }

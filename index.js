@@ -2,9 +2,14 @@ const express = require('express');
 const cookieParser = require("cookie-parser");
 const sessions = require('express-session');
 const authenticate = require('./middlewares/authenticate.js');
+const role = require('./middlewares/role.js');
 const uploadControllers = require("./controllers/uploadController.js");
 const selectControllers = require("./controllers/selectController.js");
 const optionControllers = require("./controllers/optionController.js");
+const printerControllers = require("./controllers/printerController.js");
+const rolesMap = require('./models/User.js').rolesMap;
+const getRoleByUsername = require('./models/User.js').getRoleByUsername;
+const printers = require('./models/Location.js').printers;
 
 const port = 3000;
 const oneDay = 1000 * 60 * 60 * 24;
@@ -44,11 +49,21 @@ app.post('/cas', (req, res) => {
 
 	req.session.cas_id = req.body.username;
 
-	res.redirect("/" + (req.query.service? req.query.service: ""));
+	rolesMap[req.session.cas_id] = getRoleByUsername(req.body.username);
+
+	res.redirect("/");
 })
 
-app.get("/",  authenticate, (req, res) => {
+app.get("/",  authenticate, role, (req, res) => {
 	console.log(JSON.stringify(req.session));
+	
+	if (res.locals && req.locals.role === "officer") {
+		res.render("spso", {
+			username: "Trung Nguyen",
+			printers: printers
+		});
+		return;
+	}
 
 	res.render("index",
 		{
@@ -68,7 +83,7 @@ app.get("/logout", (req, res) => {
 	res.render("sso");
 });
 
-app.get("/home", (req, res) => {
+app.get("/home", role, (req, res) => {
 	res.render("home",
 		{
 			username: req.session.username
@@ -76,7 +91,7 @@ app.get("/home", (req, res) => {
 	);
 });
 
-app.get("/success", authenticate, (req, res) => {
+app.get("/success", authenticate,  role, (req, res) => {
 	res.render("success",
 		{
 			username: req.session.username
@@ -84,11 +99,19 @@ app.get("/success", authenticate, (req, res) => {
 	);
 });
 
-app.get("/select", authenticate, selectControllers);
+app.get("/select", authenticate, role, selectControllers);
 
-app.get("/option", authenticate, optionControllers);
+app.get("/option", authenticate, role, optionControllers);
 
-app.post("/upload",  authenticate, uploadControllers);
+app.post("/upload",  authenticate, role, uploadControllers);
+
+app.get("/printer/", printerControllers.get);
+
+app.post("/printer/", printerControllers.add);
+
+app.delete("/printer/:stt", printerControllers.remove);
+
+app.put("/printer/:stt", printerControllers.edit);
 
 app.listen(port, () => {
 	console.log(`App running at http://localhost:${port}`);

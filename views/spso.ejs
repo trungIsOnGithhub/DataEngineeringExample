@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quản Lý Máy In</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
+    <link rel="stylesheet" href="./asset/css/spso.css">
+  </head>
+  <body>
+    <nav class="nav">
+        <a href="/"><h2 class="logo">BK PRINT</h2></a>
+  
+        <div class="user">
+          <div class="user_info">
+            <div class="user_icon">
+              <i class="fas fa-user"></i>
+            </div>
+  
+            <span class="user_name"><%= username %></span>
+          </div>
+  
+          <div class="user_info--hidden">
+            <span class="info"
+              >MSNV: <span class="info--msnv">ID01234</span></span
+            >
+            <span class="info"
+              >Tên: <span class="info--name">Nguyễn Văn Tuấn</span></span
+            >
+  
+            <div class="info-button">
+              <button type="button" class="button">Lịch sử</button>
+              <button type="button" class="button">Thay đổi thông tin</button>
+              <button type="button" class="button button_logout" onclick="window.location.href='/logout'">
+                Đăng xuất
+              </button>
+            </div>
+          </div>
+        </div>
+      </nav>
+
+
+      <article class="content">
+        <div class="management">
+            <h3 class="header">Quản Lý Máy In</h3>
+            <div class="menu">
+                
+                <div class="search-container">
+                    <input type="text" id="searchInput" placeholder="Search...">
+                    <button id="searchButton" onclick="searchTable()">Search</button>
+                    <div id="searchFeedback"></div>
+                </div>
+            </div>
+
+   
+
+    <table id="myTable" class="table table-design">
+      <thead>
+        <tr>
+          <th>Số Thứ Tự Máy In</th>
+          <th>Mã Máy In</th>
+          <th>Địa Điểm Máy In</th>
+          <th>Tình Trạng Máy In</th>
+          <th>Loại Máy In</th>
+          <th></th>
+          <th></th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Existing rows go here -->
+      </tbody>
+    </table>
+
+    <!-- Add Row button -->
+    <button id="addButton" onclick="openPopup()">Thêm Máy In</button>
+    <!-- Popup and overlay -->
+    <!-- Popup and overlay -->
+    <div id="overlay" onclick="closePopup()"></div>
+    <div id="popup">
+      <form id="addForm">
+        <h4>Thông Tin Máy In</h4>
+        <label for="data1">Số Thứ Tự Máy In</label><br />
+        <input
+          type="text"
+          id="data1"
+          name="data1"
+          placeholder="Nhập Thông Tin 1"
+        /><br />
+
+        <label for="data2">Mã Máy In</label><br />
+        <input
+          type="text"
+          id="data2"
+          name="data2"
+          placeholder="Nhập Thông Tin 2"
+        /><br />
+
+        <label for="data3">Địa Điểm Máy In</label><br />
+        <input
+          type="text"
+          id="data3"
+          name="data3"
+          placeholder="Nhập Thông Tin 3"
+        /><br />
+
+        <label for="data4">Tình Trạng Máy In</label><br />
+        <input
+          type="text"
+          id="data4"
+          name="data4"
+          placeholder="Nhập Thông Tin 4"
+        /><br />
+
+        <label for="data5">Loại Máy In</label><br />
+        <input
+          type="text"
+          id="data5"
+          name="data5"
+          placeholder="Nhập Thông Tin 5"
+        /><br />
+        <!-- Add other input fields, buttons, etc. -->
+        <!-- <input type="file" id="fileInput" accept=".xlsx, .xls"><br>
+        <input type="button" value="Import" onclick="importFile()"> -->
+        <input
+          type="button" id="submitBtn" value="Submit" onclick="submitForm()" />
+        <input type="button" id="cancelBtn" value="Cancel" onclick="closePopup()" />
+      </form>
+    </div>
+</article>
+    <script src="./asset/js/spso.js"></script>
+  </body>
+</html>

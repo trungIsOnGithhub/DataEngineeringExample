@@ -20,7 +20,7 @@ async function select(req, res) {
         newName: userUploadRecord.newFilename,
         originalName: userUploadRecord.originalFilename,
         username: req.session.username,
-        locationPrinterName: locationPrinterName
+        locationPrinterName: locationPrinterName()
     };
 
     res.render("select", viewData);
