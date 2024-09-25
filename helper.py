@@ -24,11 +24,10 @@ class Helper():
         return stopwords.words(self.language)
 
     def lemmatize(self, sent):
-        if self.nlp:
-            sent = self.nlp(sent)
-            return [word.lemma_.strip() for word in sent]
-        else:
+        if self.nlp is None:
             return self.tokenize_words(sent)
+        sent = self.nlp(sent)
+        return [word.lemma_.strip() for word in sent]
 
     def stem(self, word):
         if self.stemmer is None:
